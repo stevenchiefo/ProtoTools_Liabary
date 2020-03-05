@@ -9,26 +9,36 @@ namespace ProtoTools
     {
         public class DataManager
         {
-            public int hallo;
+            private static BodyRigid m_BodyRigid;
 
-            public static T GetDataType<T>()
+            public static void Start()
+            {
+                GenericList<string> genericList = new GenericList<string>();
+                genericList.AddHead("Hello");
+                genericList.AddHead("Nein");
+                foreach (string item in genericList)
+                {
+                    Debug.Log(item);
+                }
+            }
+
+            public static Part GetDataType<T>()
             {
                 T key = default;
-                DataManager i = new DataManager();
-                if (i.GetType() == key.GetType())
+                if (key.GetType() == m_BodyRigid.GetType())
                 {
-                    return key = i.GetType();
+                    return m_BodyRigid;
                 }
-                return key;
+                return null;
             }
         }
 
-        public class GetClass<T>
+        public class Part
         {
-            public static T GetTypeOffClass(T type)
-            {
-                return type;
-            }
+        }
+
+        public class BodyRigid : Part
+        {
         }
     }
 
